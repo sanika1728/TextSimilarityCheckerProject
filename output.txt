@@ -1,0 +1,4 @@
+Similarity: 41.29%
+
+Common Words:
+[recognition, language, human, natural, ai, intelligence, artificial, speech, processing, machines]
