@@ -40,12 +40,10 @@ public class SimilarityCheckerUI extends JFrame {
         add(topPanel, BorderLayout.NORTH);
         add(new JScrollPane(outputArea), BorderLayout.CENTER);
 
-        // File selection buttons
         selectFile1Btn.addActionListener(e -> file1 = chooseFile());
         selectFile2Btn.addActionListener(e -> file2 = chooseFile());
         selectStopwordsBtn.addActionListener(e -> stopwordsFile = chooseFile());
 
-        // Compute similarity
         computeBtn.addActionListener(e -> {
             if (file1 == null || file2 == null) {
                 showMessage("Please select both input files.");
@@ -82,7 +80,6 @@ public class SimilarityCheckerUI extends JFrame {
             }
         });
 
-        // Export PDF
         exportPDFBtn.addActionListener(e -> {
             if (outputArea.getText().isEmpty()) {
                 showMessage("Please generate similarity result first.");
@@ -93,7 +90,6 @@ public class SimilarityCheckerUI extends JFrame {
                 String pdfName = "similarity_result.pdf";
                 PDFExporter.export(outputArea.getText(), pdfName);
 
-             // Open PDF using default viewer
              if (Desktop.isDesktopSupported()) {
                  Desktop.getDesktop().open(new File(pdfName));
              } else {
